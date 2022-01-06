@@ -25,6 +25,7 @@
         <entry key="app/src/main/res/drawable-v24/bg_greydient.xml" value="0.17962962962962964" />
         <entry key="app/src/main/res/drawable-v24/bg_line.xml" value="0.17962962962962964" />
         <entry key="app/src/main/res/drawable-v24/corner.xml" value="0.17962962962962964" />
+        <entry key="app/src/main/res/drawable/ic_fullscreen.xml" value="0.21302083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/activity_player.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/exo_playback_control_view.xml" value="0.24010416666666667" />

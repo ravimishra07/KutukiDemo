@@ -9,6 +9,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -44,10 +45,12 @@ class PlayerActivity : AppCompatActivity(), View.OnClickListener, VideoTabClickL
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player)
+
         initViews()
         initListeners()
         initPlayer()
         getVideos()
+        hideStatusBar()
     }
 
     private fun initViews() {
@@ -131,10 +134,12 @@ class PlayerActivity : AppCompatActivity(), View.OnClickListener, VideoTabClickL
                 R.id.exo_fullscreen -> {
                     setFullScreenMode()
                     hideSystemUI()
+
                 }
                 R.id.exo_zoom_out -> {
                     setNormalMode()
                     showSystemUI()
+
                 }
                 R.id.btnBack -> {
                     finish()
@@ -186,6 +191,12 @@ class PlayerActivity : AppCompatActivity(), View.OnClickListener, VideoTabClickL
         mPlayer = null
     }
 
+    private fun hideStatusBar(){
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val controller = WindowInsetsControllerCompat(window, constraintLayout)
+        controller.hide(WindowInsetsCompat.Type.systemBars())
+    }
+
     /** show status bar and bottom buttons in normal mode*/
     private fun showSystemUI() {
         WindowCompat.setDecorFitsSystemWindows(window, true)
@@ -200,5 +211,7 @@ class PlayerActivity : AppCompatActivity(), View.OnClickListener, VideoTabClickL
         WindowCompat.setDecorFitsSystemWindows(window, false)
         val controller = WindowInsetsControllerCompat(window, constraintLayout)
         controller.hide(WindowInsetsCompat.Type.systemBars())
+        controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
     }
+
 }
