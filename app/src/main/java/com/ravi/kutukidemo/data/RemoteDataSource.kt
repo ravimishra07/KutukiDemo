@@ -10,4 +10,7 @@ class RemoteDataSource @Inject constructor(
     suspend fun getCategories(): Response<VideoCategoriesModel> {
         return api.getVideoCategory()
     }
+    suspend fun getVideos(): Response<VideoCategoriesModel> {
+        return api.getVideos()
+    }
 }
